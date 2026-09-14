@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --crt-glow: rgba(220, 90, 30, 0.15);
+  }
+}
+
+/* Authentic CRT Scanline & Grain Effects */
+.crt-scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.45) 50%,
+    rgba(0, 0, 0, 0.45)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+.crt-vignette {
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.85), inset 0 0 25px rgba(0,0,0,0.95);
+  pointer-events: none;
+}
+
+/* VHS Tracking bar jitter */
+@keyframes trackingStatic {
+  0% { transform: translateY(0) scaleY(1); opacity: 0.85; }
+  50% { transform: translateY(-3px) scaleY(1.2); opacity: 0.95; }
+  100% { transform: translateY(1px) scaleY(0.9); opacity: 0.8; }
+}
+
+.animate-vhs-tracking {
+  animation: trackingStatic 0.12s steps(3) infinite;
+}
+
+/* Hand-drawn 8fps frame jitter */
+@keyframes handDrawnJitter {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-1px, 1px) rotate(-0.3deg); }
+  50% { transform: translate(1px, -0.5px) rotate(0.2deg); }
+  75% { transform: translate(-0.5px, -1px) rotate(-0.2deg); }
+  100% { transform: translate(0.5px, 0.8px) rotate(0.1deg); }
+}
+
+.animate-sketch-jitter {
+  animation: handDrawnJitter 0.35s steps(4) infinite;
+}
+
+/* Red eye pulsation */
+@keyframes evilPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(229, 28, 28, 0.6)) drop-shadow(0 0 45px rgba(229, 28, 28, 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(255, 40, 40, 0.85)) drop-shadow(0 0 70px rgba(229, 28, 28, 0.5));
+    transform: scale(1.02);
+  }
+}
+
+.animate-evil-pulse {
+  animation: evilPulse 4s ease-in-out infinite;
+}
+
+/* Chalk/stippled rough outline SVG filter */
+.cartoon-filter {
+  filter: contrast(140%) brightness(95%);
+}
+
+/* Font classes */
+.font-tape {
+  font-family: 'VT323', monospace;
+}
+
+.font-caption {
+  font-family: 'Courier Prime', monospace;
+}
+
+.font-display-retro {
+  font-family: 'Outfit', sans-serif;
+}
+

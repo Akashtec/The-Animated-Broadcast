@@ -1,0 +1,6 @@
+{
+  "name": "The Animated Broadcast",
+  "description": "An interactive analogue horror-cartoon experience faithfully reconstructing the vintage tape aesthetic and narrative storyboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
